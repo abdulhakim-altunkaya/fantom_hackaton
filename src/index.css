@@ -1,6 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
 body {
   margin: 0;
-  font-family: Verdana;
-  background-color: lightpink;
+  font-family: "Quicksand", 'Trebuchet MS';
+  background-image: url("../public/background.png");
+}
+.App {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+.upperbarDiv {
+  width: 80%;
+  min-height: 20vh;
+  margin: auto;
+  background-color: white;
+  text-align: center;
+  padding: 10px;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  margin-bottom: 30px;
+}
+.lowerbarDiv {
+  min-height: 70vh;
+  margin-top: 20px;
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  padding: 10px;
+  border-radius: 9px;
+}
+
+
+/*<button class="button6">COPY ME</button>*/
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap'); /*Dosis*/
+.upperbarButtonsDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.button6 {
+  height: 35px;
+  width: 250px;
+  font-size: 24px;
+  padding: 6px;
+  background-color: #242329;
+  color: #fcfcfc;
+  border: 2px whitesmoke solid;
+  border-radius: 4px; 
+  font-family: 'Dosis', sans-serif;
+  transition-duration: 0.4s;
+}
+.button6:hover {
+  font-weight: bolder;
+  cursor: pointer;
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.upperbarLogoDiv {
+  cursor: pointer;
+}
+
+.footerDiv{
+  text-align: center;
+  font-size: 14px;
+  padding-top: 3px;
+  font-style: italic;
+  font-family: 'Trebuchet MS', sans-serif;
+  min-height: 3vh;
+  background-color: #b2beb5;
+  margin-top: 5px;
+}
