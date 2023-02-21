@@ -94,6 +94,7 @@ contract Auditing is ERC20Capped {
     function changeFee(uint _fee) external onlyOwner {
         fee = _fee;
     }
+    
     function makePayment() external returns(bool) {
         require(balanceOf(msg.sender) >= fee, "you don't have CONTOR");
         require(msg.sender == tx.origin, "contracts cannot withdraw");
@@ -102,15 +103,16 @@ contract Auditing is ERC20Capped {
         emit TokenDeposited(msg.sender, fee);
         return true;
     }
+    //Currently the pool of CONTOR/FTM is not based on orderbook model.
+    //For that reason there is fixed price which is 12 Contor for 1 FTM
     function buyToken() external payable {
         require(balanceOf(address(this)) >= 1000, "contract does not have enough CONTOR");
         require(msg.sender == tx.origin, "only accounts can buy tokens, not contracts");
         require(msg.sender != address(0), "real addresses can buy");
         //here the buyer send amount(with decimals) to the contract by using msg.value
-        require(msg.value == 10000000000000000, "deposit is 10 finney (0,01 ether)" ); 
-        //For 0,01 FTM, we are transferring 10 CONTOR.
-        _transfer(address(this), msg.sender, 10*(10**18));
-        emit TokenTransferred(msg.sender, 10);
+        require(msg.value == 1*(10**18), "deposit is 1 FTM" ); 
+        _transfer(address(this), msg.sender, 12*(10**18));
+        emit TokenTransferred(msg.sender, 12);
     }
 
 
@@ -124,7 +126,7 @@ contract Auditing is ERC20Capped {
     }
 
     mapping(address => bool) internal membersMapping;
-    function becomeMember(uint amount) external isMember {
+    function becomeMember() external isMember {
         require(balanceOf(msg.sender) >= 10, "you must have at least 10 CONTOR");
         require(msg.sender == tx.origin, "only accounts can become member, not contracts");
         require(msg.sender != address(0), "address 0 cant become member");
@@ -141,7 +143,5 @@ contract Auditing is ERC20Capped {
         require(msg.sender != address(0), "address 0 is already not a member");
         membersMapping[msg.sender] = false;
     }
-    /*
-    -withdraw/transfer tokens
-    -withdraw fantom */
+
 }

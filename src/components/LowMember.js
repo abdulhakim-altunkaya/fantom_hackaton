@@ -1,9 +1,19 @@
-import React from 'react'
+import React from 'react';
+
+import WAMain from './WAMain';
+import RAMain from './RAMain';
 
 function LowMember() {
+
+
+  
   return (
-    <div>LowMember</div>
+    <div className='mainLowDiv'>
+        <RAMain />
+        <WAMain />
+    </div>
   )
+
 }
 
 export default LowMember
