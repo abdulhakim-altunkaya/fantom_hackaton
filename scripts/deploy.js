@@ -8,7 +8,7 @@ const hre = require("hardhat");
 
 async function main() {
   const Auditing = await hre.ethers.getContractFactory("Auditing");
-  const auditing = await Auditing.deploy();
+  const auditing = await Auditing.deploy(1000000);
   await auditing.deployed();
   console.log(`auditing is deployed to ${auditing.address}`);
 }

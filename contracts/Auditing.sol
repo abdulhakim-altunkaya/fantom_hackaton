@@ -144,4 +144,9 @@ contract Auditing is ERC20Capped {
         membersMapping[msg.sender] = false;
     }
 
+
+/*
+Copy contract address to wabuy component */
+
+
 }
