@@ -30,7 +30,6 @@ contract Auditing is ERC20Capped {
     //CONSTRUCTOR
     constructor(uint cap) ERC20("Contractorium", "CONTOR") ERC20Capped(cap*(10**18)) {
         owner = msg.sender;
-        _mint(address(this), 1000*(10**18));
     }
 
     //2.TOKEN OPERATIONS
@@ -65,11 +64,10 @@ contract Auditing is ERC20Capped {
 
     //Contract must have enough tokens. So that people can come and buy tokens for auditing service. 
     uint lastReplenishment = block.timestamp;
-    function replenishTreasury(uint _amount) external onlyOwner {
+    function replenishTreasury() external onlyOwner {
         require( block.timestamp > lastReplenishment + 15 seconds, "Replenishment cannot be often");//in production: 5 days
-        require(_amount < 2000, "Replenishment must be limited amount");
         lastReplenishment = block.timestamp;
-        _mint(address(this), _amount*(10**18));
+        _mint(address(this), 2000*(10**18));
     }
 
     //view functions
@@ -146,7 +144,8 @@ contract Auditing is ERC20Capped {
 
 
 /*
-Copy contract address to wabuy component */
+Copy contract address to wabuy component 
+Update token contract address in RAConnectMet*/
 
 
 }

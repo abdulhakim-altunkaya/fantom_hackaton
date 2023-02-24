@@ -9,7 +9,7 @@ function WAMember() {
   
   return (
     <div>
-        <button onClick={becomeMember}>BECOME MEMBER</button>
+        <button className='button9' onClick={becomeMember}>BECOME MEMBER</button>
     </div>
   )
 
