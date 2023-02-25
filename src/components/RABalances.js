@@ -9,19 +9,17 @@ function RABalances() {
 
     let[myBalance, setMyBalance] = useState("");
     let[totalMinted, setTotalMinted] = useState("");
-    let[treasury, setTreasury] = useState("");
+    let[treasuryContor, setTreasuryContor] = useState("");
+    let[treasuryFTM, setTreasuryFTM] = useState("");
 
     const getBalances = async () => {
         setButtonLoading4(true);
-        const data1 = await zustandContract.getYourBalance();
-        const data2 = await zustandContract.getCBalToken();
-        const data3 = await zustandContract.getTotalSupply();
-        const data1a = data1.toString();
-        const data2a = data2.toString();
-        const data3a = data3.toString();
-        setMyBalance(data1a);
-        setTreasury(data2a);
-        setTotalMinted(data3a);
+        const dataRaw = await zustandContract.returnBalances();
+        const dataArray = dataRaw.map( balance => (balance.toString()));
+        setMyBalance(dataArray[0]);
+        setTotalMinted(dataArray[3]);
+        setTreasuryContor(dataArray[1]);
+        setTreasuryFTM(dataArray[2]);
         setDisplayStatus4(true);
         setButtonLoading4(false);
     }
@@ -43,8 +41,9 @@ function RABalances() {
                 <>
                     <div>            
                         <span><strong>Your CONTOR balance:</strong> {myBalance}</span> <br />
-                        <span><strong>Contractorium Treasury:</strong> {totalMinted}</span> <br />
-                        <span><strong>Total Minted CONTOR until now:</strong> {treasury}</span>
+                        <span><strong>Contractorium Treasury CONTOR:</strong> {treasuryContor}</span> <br />
+                        <span><strong>Contractorium Treasury FTM:</strong> {treasuryFTM}</span> <br />
+                        <span><strong>Total Minted CONTOR until now:</strong> {totalMinted}</span>
                     </div>
                     <button className='hidingButton' onClick={hideDetails2}>Hide Details</button> <br />
                 </>

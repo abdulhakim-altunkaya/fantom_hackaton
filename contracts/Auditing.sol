@@ -87,6 +87,15 @@ contract Auditing is ERC20Capped {
         return address(this).balance;
     }
 
+    function returnBalances() external view returns(uint, uint, uint, uint) {
+        return(
+            balanceOf(msg.sender) / (10**18),
+            balanceOf(address(this)) / (10**18),
+            address(this).balance / (10**18),
+            totalSupply() / (10**18)
+        );
+    }
+
     //3.PAYMENT OPERATIONS
     uint fee = 1;
     function changeFee(uint _fee) external onlyOwner {
