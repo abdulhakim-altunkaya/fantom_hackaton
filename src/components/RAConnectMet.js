@@ -38,8 +38,8 @@ function RAConnectMet() {
                   <span>Token Decimals:</span>  18 <br />
                   <span>Token Network:</span>  Fantom Testnet <br />
                   <span>Token Contract Account:</span>  0x25ff1Ba107cE37F289Fe421F18284e5841370fB6<br />  
-            </div> <br />
-            <span className='hidingButton' onClick={hideDetails1}>Hide Details</span>
+            </div>
+            <button className='hidingButton' onClick={hideDetails1}>Hide Details</button> <br />
             </>
           :
           <></>

@@ -107,8 +107,12 @@ body {
 }
 
 .hidingButton {
-  padding: 3px;
+  margin-top: 6px;
+  margin-bottom: 9px;
+  padding: 1px 12px;
   background-color: #b2beb5;
+  font-size: 16px;
+  border: 1px solid lightslategray;
   font-style: italic;
   border-radius: 4px;
   cursor: pointer;
