@@ -11,6 +11,7 @@ function Lowerbar() {
       <div className='lowerbarDiv'>
           <Routes>
             <Route path="/membership" element={ <LowMember /> } />
+            <Route path="/" element={ <LowMember /> } />
             <Route path="/audit" element={ <LowForm /> } />
           </Routes>
       </div>

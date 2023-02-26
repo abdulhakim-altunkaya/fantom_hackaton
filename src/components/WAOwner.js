@@ -38,7 +38,7 @@ function WAOwner() {
       {displayStatus3 === true ? 
            <p>
             {disableButton3 === true ?
-              <button onClick={replenishTreasure} disabled className='button-85'>REPLENISHING...</button>
+              <button onClick={replenishTreasure} disabled className='button-85'>Replenishing...</button>
               :
               <button onClick={replenishTreasure} className="button-85">Replenish Treasure</button>
             } 

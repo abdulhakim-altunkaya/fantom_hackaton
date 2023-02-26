@@ -12,7 +12,7 @@ function Upperbar() {
             alt="logo of page. You can click on it to go to main page"/>
           </div>
           <div className='upperbarButtonsDiv'>
-              <span className='button6' onClick={() => navigate("/membership")}>BECOME MEMBER</span>
+              <span className='button6' onClick={() => navigate("/membership")}>TOKEN OPERATIONS</span>
               <span className='button6' onClick={() => navigate("/audit")}>AUDIT CONTRACT</span>
           </div>
 
