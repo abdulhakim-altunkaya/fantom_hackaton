@@ -1,16 +1,30 @@
 import React, { useState } from 'react'
 import { Configuration, OpenAIApi } from "openai";
+import { useAccount } from "../Store.js";
 
 function LowForm() {
+  const zustandContract = useAccount(state => state.contract);
+
   let[contractCode, setContractCode] = useState("");
   let[responseChatgpt, setResponseChatgpt] = useState("");
+  let[disableButton7, setDisableButton7] = useState(false);
 
   const api = process.env.REACT_APP_CHATGPT_API;
   const configuration = new Configuration({apiKey: api});
   const openai = new OpenAIApi(configuration);
 
+
+
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
+    setDisableButton7(true);
+    const txResponse = await zustandContract.makePayment();
+    if(txResponse === false) {
+      setResponseChatgpt("You need to pay 1 CONTOR. To get 1 CONTOR, go to Token Operations section");
+      setDisableButton7(false);
+      return;
+    }
     const formInput = `
       Imagine you are smart contract auditor. Take a look at the contract that I will be sharing below.
       Then try to see loopholes inside the contract. What are the weak points that hackers can exploit? Also,
@@ -29,6 +43,7 @@ function LowForm() {
     });
     const message = response.data.choices[0].text;
     setResponseChatgpt(message);
+    setDisableButton7(false);
   }
 
   
@@ -44,7 +59,12 @@ function LowForm() {
       </p>
       <form onSubmit={handleSubmit} className='contractSubmitForm'>
           <textArea type="text" value={contractCode} onChange={ e => setContractCode(e.target.value) } required></textArea>
-          <input type="submit" value="Send" className='button-87'/>
+          {disableButton7 === true ? 
+            <input type="submit" value="Wait..." disabled className='button-87'/>
+          :
+            <input type="submit" value="Send" className='button-87'/>
+          }
+          
       </form>
       <p>{responseChatgpt}</p>
 
