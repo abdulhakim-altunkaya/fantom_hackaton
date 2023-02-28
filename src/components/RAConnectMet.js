@@ -37,7 +37,7 @@ function RAConnectMet() {
                   <span>Token Standard:</span>  ERC20 <br />
                   <span>Token Decimals:</span>  18 <br />
                   <span>Token Network:</span>  Fantom Testnet <br />
-                  <span>Token Contract Account:</span>  0x25ff1Ba107cE37F289Fe421F18284e5841370fB6<br />  
+                  <span>Token Contract Account:</span>  0x224E1aC03E45e1C792522857CB3c3867B9E3Ed01<br />  
             </div>
             <button className='hidingButton' onClick={hideDetails1}>Hide Details</button> <br />
             </>
