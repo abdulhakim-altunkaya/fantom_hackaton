@@ -7,7 +7,6 @@ import LowMember from "./LowMember";
 
 function Lowerbar() {
   return (
-    <div>
       <div className='lowerbarDiv'>
           <Routes>
             <Route path="/membership" element={ <LowMember /> } />
@@ -15,7 +14,6 @@ function Lowerbar() {
             <Route path="/audit" element={ <LowForm /> } />
           </Routes>
       </div>
-    </div>
   )
 }
 
