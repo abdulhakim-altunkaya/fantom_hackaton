@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.7;
+pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Capped.sol";
@@ -84,7 +84,7 @@ contract Auditing is ERC20Capped {
         return balanceOf(address(this)) / (10**18);
     }
     function getCBalEther() external view returns(uint) {
-        return address(this).balance;
+        return address(this).balance / (10**18);
     }
 
     function returnBalances() external view returns(uint, uint, uint, uint) {
@@ -152,9 +152,7 @@ contract Auditing is ERC20Capped {
     }
 
 
-/*
-Copy contract address to wabuy component 
-Update token contract address in RAConnectMet*/
+
 
 
 }

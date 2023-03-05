@@ -26,7 +26,7 @@ function RABalances() {
 
     const hideDetails2 = () => {
         setDisplayStatus4(false);
-    }
+    } 
 
     return (
         <> 
