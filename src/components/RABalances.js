@@ -19,8 +19,8 @@ function RABalances() {
         setMyBalance(dataArray[0]);
         setTotalMinted(dataArray[3]);
         setTreasuryContor(dataArray[1]);
-        setTreasuryFTM(dataArray[2]);
-        setDisplayStatus4(true);
+        setTreasuryFTM(dataArray[2].slice(0, -18));
+        setDisplayStatus4(true); 
         setButtonLoading4(false);
     }
 
